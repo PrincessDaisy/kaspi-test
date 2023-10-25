@@ -18,7 +18,7 @@ namespace kaspi_test.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            
+            throw new NotImplementedException();  
         }
     }
 }
