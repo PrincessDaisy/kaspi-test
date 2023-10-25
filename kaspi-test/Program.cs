@@ -2,6 +2,7 @@ using DapperRepository.Database;
 using DapperRepository.Migrations;
 using FluentMigrator.Runner;
 using kaspi_test.Extensions;
+using Microsoft.Extensions.Configuration;
 using Repository.Context;
 using System.Reflection;
 
@@ -21,6 +22,7 @@ builder.Services.AddLogging(c => c.AddFluentMigratorConsole())
             .WithGlobalConnectionString(sqlConn)
             .ScanIn(Assembly.GetAssembly(type)).For.Migrations());
 
+builder.Services.AddHttpClient("KazPostClient", c => c.BaseAddress = new Uri("https://tengrinews.kz/"));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
